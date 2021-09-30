@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var app = function () {
+            var numSty = Math.floor(Math.random() * 10 * 0.3)
+            var str = ""
+            if (numSty === 1) {
+                str = "黑桃"
+            } else if (numSty === 2) {
+                str = "红桃"
+            } else if (numSty === 3) {
+                str = "方块"
+            } else {
+                str = "梅花"
+            }
+            var numNum = Math.floor(Math.random() * 10 * 1.4)
+            if (numNum === 1) {
+                str += "A"
+            } else if (numNum === 2) {
+                str += 2
+            } else if (numNum === 3) {
+                str += 3
+            } else if (numNum === 4) {
+                str += 4
+            } else if (numNum === 5) {
+                str += 5
+            } else if (numNum === 6) {
+                str += 6
+            } else if (numNum === 7) {
+                str += 7
+            } else if (numNum === 8) {
+                str += 8
+            } else if (numNum === 9) {
+                str += 9
+            } else if (numNum === 10) {
+                str += 10
+            } else if (numNum === 11) {
+                str += "J"
+            } else if (numNum === 12) {
+                str += "Q"
+            } else if (numNum === 13) {
+                str += "K"
+            } else if (numNum === 14) {
+                str = "joke"
+            } else {
+                str = "JOKE"
+            }
+            return str
+        }
+
+        var arr = []
+
+        arr.push(app())
+
+        // 抢地主 
+        var auther = Math.floor(Math.random() * 10 * 0.2)
+
+
+        var timer = setInterval(() => {
+            var result = app()
+            arr.push(result)
+            console.log(result)
+
+            // 农民17， 地主21
+            if (auther === 0) {
+                if (arr.length == 16) {
+                    clearInterval(timer)
+                    console.log(arr.sort(),"农民")
+                }
+            }else if(auther ===1){
+                if (arr.length == 16) {
+                    clearInterval(timer)
+                    console.log(arr.sort(),"农民")
+                }
+            }else{
+                if (arr.length == 20) {
+                    clearInterval(timer)
+                    console.log(arr.sort(),"地主")
+                }
+            }
+        }, 1000)
+
+
+    </script>
+</body>
+
+</html>
